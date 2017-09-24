@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { environment } from '../../environments/environment';
 
 @Component({
   selector: 'app-about',
@@ -12,4 +13,5 @@ export class AboutComponent implements OnInit {
   ngOnInit() {
   }
 
+  assetsDirectory = environment.assetsDirectory;
 }
