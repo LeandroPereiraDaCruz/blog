@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app';
+  posts = [
+      {
+          date: '01/12/2006 09:00h',
+          
+      }
+  ]
 }
