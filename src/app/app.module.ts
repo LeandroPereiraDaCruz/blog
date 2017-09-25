@@ -7,6 +7,7 @@ import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
 import { LinkRedesSociaisComponent } from './link-redes-sociais/link-redes-sociais.component';
 import { PostsComponent } from './posts/posts.component';
+import { FacebookModule } from 'ngx-facebook';
 
 
 const appRoute:Routes = [
@@ -25,7 +26,8 @@ const appRoute:Routes = [
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(appRoute)
+    RouterModule.forRoot(appRoute),
+    FacebookModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
