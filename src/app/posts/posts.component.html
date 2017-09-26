@@ -1,32 +1,15 @@
 <div class="container">
   <div class="row">
     <div class="col-md-6">
-      <div class="row justify-content-center">
-        <div class="col">
-          <div>
-            <h2>Inauguração do Blog</h2>
-            <h5>24 de setembro 2017 14:23h</h5>
-            <p>Hoje é um dia para comemorar!</p>
-            <p>É o dia que o blog foi disponibilizado no github. Ebaahh</p>
-          </div>
+      <div class="row justify-content-center" *ngFor="let post of posts">
+        <div class="col">  
+          <h2>{{post.title}}</h2>
+          <h5>{{post.created}}</h5>
+          <div [innerHtml]="post.body | safeHtml"></div>
           <h5>Deixe seu comentário abaixo:</h5>
-          <fb-comments numposts="5" href="https://leandropereiradacruz.github.io/blog/posts/2"></fb-comments>
-        </div>
-      </div>
-      <hr>
-      <div class="row justify-content-center">
-        <div class="col">
-          <div>
-            <h2>Hackaton Uni-FACEF 2016</h2>
-            <h5>24 de agosto 2016 11:56h</h5>
-            <p>O hackaton Uni-FACEF 2016 foi um evento que durou 24 horas, realizado no dia 20 e 21 de agosto de 2016.</p>
-            <p>Foram desenvolvidos vários projetos pelos alunos das turmas do 3ª e 4ª ano do curso de Sistemas de Informação da Uni-FACEF, os projetos foram apresentados e porteriormente avaliados pela banca examinadora.</p>
-            <p>Todos os projetos estiveram relacionados a soluções na area de varejo sugeridos pela empresa Luizalabs de Franca.</p>
-            <p><iframe width="474" height="267" src="https://www.youtube.com/embed/ejoGz2yilEs?feature=oembed" frameborder="0" allowfullscreen></iframe></p>
-            <p><iframe width="474" height="267" src="https://www.youtube.com/embed/tIQWet1RR-g?feature=oembed" frameborder="0" allowfullscreen></iframe></p>
-          </div>
-          <h5>Deixe seu comentário abaixo:</h5>
-          <fb-comments numposts="5" href="https://leandropereiradacruz.github.io/blog/posts/1"></fb-comments>
+          <fb-comments numposts="5" href="https://leandropereiradacruz.github.io/blog/posts/{{post.id}}"></fb-comments>
+          <br>
+          <hr>
         </div>
       </div>
     </div>

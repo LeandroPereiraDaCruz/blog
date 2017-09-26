@@ -8,6 +8,7 @@ import { ContactComponent } from './contact/contact.component';
 import { LinkRedesSociaisComponent } from './link-redes-sociais/link-redes-sociais.component';
 import { PostsComponent } from './posts/posts.component';
 import { FacebookModule } from 'ngx-facebook';
+import { SafeHtmlPipe } from './util/pipe.safehtml'
 
 
 const appRoute:Routes = [
@@ -22,7 +23,8 @@ const appRoute:Routes = [
     AboutComponent,
     ContactComponent,
     LinkRedesSociaisComponent,
-    PostsComponent
+    PostsComponent,
+    SafeHtmlPipe
   ],
   imports: [
     BrowserModule,
