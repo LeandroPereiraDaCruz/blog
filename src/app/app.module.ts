@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { AboutComponent } from './about/about.component';
@@ -9,7 +10,7 @@ import { LinkRedesSociaisComponent } from './link-redes-sociais/link-redes-socia
 import { PostsComponent } from './posts/posts.component';
 import { FacebookModule } from 'ngx-facebook';
 import { SafeHtmlPipe } from './util/pipe.safehtml'
-
+import { ApiserverService } from './apiserver.service';
 
 const appRoute:Routes = [
     { path: '', component:PostsComponent},
@@ -29,9 +30,10 @@ const appRoute:Routes = [
   imports: [
     BrowserModule,
     RouterModule.forRoot(appRoute),
-    FacebookModule.forRoot()
+    FacebookModule.forRoot(),
+    HttpModule
   ],
-  providers: [],
+  providers: [ApiserverService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
