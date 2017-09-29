@@ -19,10 +19,15 @@ export class PostsComponent implements OnInit {
 
   ngOnInit() {
     this.api.getPosts().subscribe(res=>{
+      console.log("Got posts from API")
+      console.log(res);
       this.posts = res;
+      if(window.FB)
+        window.FB.XFBML.parse();
+    },error => {
+      console.log(error);
     });
-    if(window.FB)
-      window.FB.XFBML.parse();
+
   }
 }
 
