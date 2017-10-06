@@ -34,7 +34,7 @@ const appRoute:Routes = [
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(appRoute),
+    RouterModule.forRoot(appRoute, {useHash: true}),
     FacebookModule.forRoot(),
     HttpModule
   ],
