@@ -23,12 +23,12 @@ export class PostsComponent implements OnInit {
   ngOnInit() {
     this.api.getPosts().subscribe(res => {
       console.log('Got posts from API ' + this.api.getUrl());
-      console.log(res);
+      console.log('RESPONSE', res);
       this.posts = res;
       this.xfbmlParse();
     }, error => {
       console.log('Error getting posts from API ' + this.api.getUrl());
-      console.log(error);
+      console.log('ERROR', error);
     });
   }
 

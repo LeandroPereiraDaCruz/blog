@@ -29,12 +29,12 @@ export class PostComponent implements OnInit, OnDestroy {
     this.api.getPost(this.id)
     .subscribe(res => {
         console.log('Got post " + this.id + " from API ' + this.api.getUrl());
-        console.log(res);
+        console.log('RESPONSE', res);
         this.post = res;
         this.xfbmlParse();
     }, error => {
         console.log('Error getting post ' + this.id + ' from API ' + this.api.getUrl());
-        console.log(error);
+        console.log('ERROR', error);
     });
   }
 
