@@ -15,19 +15,19 @@ declare var window: any;
 
 export class PostsComponent implements OnInit {
 
-  posts:Post[];
+  posts: Post[];
 
-  constructor(private api:ApiserverService) { }
+  constructor(private api: ApiserverService) { }
 
 
   ngOnInit() {
-    this.api.getPosts().subscribe(res=>{
-      console.log("Got posts from API " + this.api.getUrl());
+    this.api.getPosts().subscribe(res => {
+      console.log('Got posts from API ' + this.api.getUrl());
       console.log(res);
       this.posts = res;
-      this.xfbmlParse()
-    },error => {
-      console.log("Error getting posts from API " + this.api.getUrl());
+      this.xfbmlParse();
+    }, error => {
+      console.log('Error getting posts from API ' + this.api.getUrl());
       console.log(error);
     });
   }
@@ -36,21 +36,21 @@ export class PostsComponent implements OnInit {
       return new Promise(resolve => setTimeout(resolve, ms));
   }
 
-  async xfbmlParse(){
-    await this.delay(300); //wait a little bit while things are being rendered in the page
-    if(window.FB){
-      window.FB.XFBML.parse(window.document.body, ()=>{
-        console.log("Facebook comments updated");    
+  async xfbmlParse() {
+    await this.delay(300); // wait a little bit while things are being rendered in the page
+    if (window.FB) {
+      window.FB.XFBML.parse(window.document.body, () => {
+        console.log('Facebook comments updated');
       });
+    } else {
+      console.log('FB not defined');
     }
-    else
-      console.log("FB not defined");
   }
 }
 
 
 
-interface Post{
+interface Post {
     id: string;
     title: string;
     created: string;

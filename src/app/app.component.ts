@@ -8,11 +8,10 @@ import { FacebookService, InitParams } from 'ngx-facebook';
 })
 
 export class AppComponent {
-  constructor(private fb:FacebookService) {
-      
-    console.log("Initializing Facebook");
+  constructor(private fb: FacebookService) {
+    console.log('Initializing Facebook');
 
-    let initParams: InitParams = {
+    const initParams: InitParams = {
       appId    : '1973369569569674',
       xfbml    : true,
       version  : 'v2.10'

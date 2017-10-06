@@ -12,15 +12,15 @@ import { PostComponent } from './post/post.component';
 
 import { LinkRedesSociaisComponent } from './link-redes-sociais/link-redes-sociais.component';
 import { FacebookModule } from 'ngx-facebook';
-import { SafeHtmlPipe } from './util/pipe.safehtml'
+import { SafeHtmlPipe } from './util/pipe.safehtml';
 import { ApiserverService } from './apiserver.service';
 
-const appRoute:Routes = [
-    { path: '', component:PostsComponent},
-    { path: 'about', component:AboutComponent},
-    { path: 'contact', component:ContactComponent},
-    { path: 'post/:id', component:PostComponent}
-]
+const appRoute: Routes = [
+    { path: '', component: PostsComponent},
+    { path: 'about', component: AboutComponent},
+    { path: 'contact', component: ContactComponent},
+    { path: 'post/:id', component: PostComponent}
+];
 
 @NgModule({
   declarations: [
