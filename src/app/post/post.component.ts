@@ -15,7 +15,7 @@ declare var window: any;
 export class PostComponent implements OnInit, OnDestroy {
 
   id: string;
-  private sub;
+  private sub: any;
   post: Post;
 
   constructor(
@@ -28,7 +28,7 @@ export class PostComponent implements OnInit, OnDestroy {
     });
     this.api.getPost(this.id)
     .subscribe(res => {
-        console.log('Got post " + this.id + " from API ' + this.api.getUrl());
+        console.log('Got post ' + this.id + ' from API ' + this.api.getUrl());
         console.log('RESPONSE', res);
         this.post = res;
         this.xfbmlParse();

@@ -1,11 +1,17 @@
 <div class="container">
   <div class="row justify-content-center">
-    <div class="col-md-6">
+    <div class="col-md-8" *ngIf="post; else loading">
       <h2>{{post.title}}</h2>
       <h5>{{post.created}}</h5>
       <div [innerHtml]="post.body | safeHtml"></div>
       <h5>Deixe seu comentário abaixo:</h5>
-      <fb-comments numposts="5" href="https://leandropereiradacruz.github.io/post/{{post.id}}" ></fb-comments>
+      <fb-comments numposts="5" href="https://leandropereiradacruz.github.io/#/post/{{post.id}}" ></fb-comments>
     </div>
+    <div class="col-md-4">
+      <app-recent-posts></app-recent-posts>
+    </div>
+    <ng-template #loading>
+        Loading...
+    </ng-template>
   </div>
 </div>

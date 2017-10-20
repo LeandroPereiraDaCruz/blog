@@ -1,20 +1,20 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-6">
+    <div class="col-md-8">
       <div class="row justify-content-center" *ngFor="let post of posts;">
         <div class="col">  
           <a [routerLink]="['post',post.id]"><h2>{{post.title}}</h2></a>
           <h5>{{post.created}}</h5>
           <div [innerHtml]="post.body | safeHtml"></div>
           <h5>Deixe seu comentário abaixo:</h5>
-          <fb-comments numposts="5" href="https://leandropereiradacruz.github.io/post/{{post.id}}" ></fb-comments>
+          <fb-comments numposts="5" href="https://leandropereiradacruz.github.io/#/post/{{post.id}}" ></fb-comments>
           <br>
           <hr>
         </div>
       </div>
     </div>
-    <div class="col-md-6">
-
+    <div class="col-md-4">
+      <app-recent-posts></app-recent-posts>
     </div>
   </div>
 </div>

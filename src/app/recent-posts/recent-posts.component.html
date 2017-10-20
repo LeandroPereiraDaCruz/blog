@@ -1,0 +1,7 @@
+<h4>Últimos posts</h4>
+<div *ngFor="let post of posts">
+<a [routerLink]="['/post', post.id]">
+  <p>{{post.title}}<br>
+    <small class="text-muted">{{post.created}}</small></p>
+</a>
+</div>

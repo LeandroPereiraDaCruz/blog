@@ -9,17 +9,22 @@ import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
 import { PostsComponent } from './posts/posts.component';
 import { PostComponent } from './post/post.component';
+import { NotfoundComponent } from './notfound/notfound.component';
+import { RecentPostsComponent } from './recent-posts/recent-posts.component';
 
 import { LinkRedesSociaisComponent } from './link-redes-sociais/link-redes-sociais.component';
 import { FacebookModule } from 'ngx-facebook';
 import { SafeHtmlPipe } from './util/pipe.safehtml';
 import { ApiserverService } from './apiserver.service';
 
+
+
 const appRoute: Routes = [
     { path: '', component: PostsComponent},
     { path: 'about', component: AboutComponent},
     { path: 'contact', component: ContactComponent},
-    { path: 'post/:id', component: PostComponent}
+    { path: 'post/:id', component: PostComponent},
+    { path: '**', component: NotfoundComponent}
 ];
 
 @NgModule({
@@ -30,7 +35,9 @@ const appRoute: Routes = [
     PostsComponent,
     PostComponent,
     LinkRedesSociaisComponent,
-    SafeHtmlPipe
+    SafeHtmlPipe,
+    NotfoundComponent,
+    RecentPostsComponent
   ],
   imports: [
     BrowserModule,
