@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 
 import { SafeHtmlPipe } from '../util/pipe.safehtml';
 import { ApiserverService } from '../apiserver.service';
 import { FacebookService } from 'ngx-facebook';
+
+import { Post } from '../_interfaces/post';
 
 declare var window: any;
 
@@ -15,13 +17,12 @@ declare var window: any;
 
 export class PostsComponent implements OnInit {
 
+  @ViewChild('loading') loading:ElementRef;
+
   posts: Post[];
 
-  constructor(private api: ApiserverService) { }
-
-
-  ngOnInit() {
-    this.api.getPosts().subscribe(res => {
+  constructor(private api: ApiserverService) {
+    this.api.getPosts('?sortBy=id&order=desc').subscribe(res => {
       console.log('Got posts from API ' + this.api.getUrl());
       console.log('RESPONSE', res);
       this.posts = res;
@@ -29,8 +30,12 @@ export class PostsComponent implements OnInit {
     }, error => {
       console.log('Error getting posts from API ' + this.api.getUrl());
       console.log('ERROR', error);
+      this.loading.nativeElement.innerHTML = 'Error: Didn\'t connect to the API!';
     });
   }
+
+
+  ngOnInit() { }
 
   delay(ms: number) {
       return new Promise(resolve => setTimeout(resolve, ms));
@@ -46,14 +51,4 @@ export class PostsComponent implements OnInit {
       console.log('FB not defined');
     }
   }
-}
-
-
-
-interface Post {
-    id: string;
-    title: string;
-    created: string;
-    body: string;
-    category: string;
 }

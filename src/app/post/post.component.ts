@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { ApiserverService } from '../apiserver.service';
 import { SafeHtmlPipe } from '../util/pipe.safehtml';
 import { FacebookService } from 'ngx-facebook';
+import { Post } from '../_interfaces/post';
 
 declare var window: any;
 
@@ -15,36 +16,34 @@ declare var window: any;
 export class PostComponent implements OnInit, OnDestroy {
 
   id: string;
-  private sub: any;
   post: Post;
 
   constructor(
-      private route: ActivatedRoute,
-      private api: ApiserverService) { }
+    private route: ActivatedRoute,
+    private api: ApiserverService) { }
 
   ngOnInit() {
-    this.sub = this.route.params.subscribe(params => {
-        this.id = params['id'];
-    });
-    this.api.getPost(this.id)
-    .subscribe(res => {
+    this.route.params.forEach(params => {
+      this.id = params['id'];
+      this.api.getPost(this.id)
+      .subscribe(res => {
         console.log('Got post ' + this.id + ' from API ' + this.api.getUrl());
         console.log('RESPONSE', res);
         this.post = res;
         this.xfbmlParse();
-    }, error => {
+      }, error => {
         console.log('Error getting post ' + this.id + ' from API ' + this.api.getUrl());
         console.log('ERROR', error);
+      });
     });
+
   }
 
-  ngOnDestroy() {
-    this.sub.unsubscribe();
-  }
+  ngOnDestroy() { }
 
 
   delay(ms: number) {
-      return new Promise(resolve => setTimeout(resolve, ms));
+    return new Promise(resolve => setTimeout(resolve, ms));
   }
 
   async xfbmlParse() {
@@ -59,10 +58,4 @@ export class PostComponent implements OnInit, OnDestroy {
   }
 }
 
-interface Post {
-    id: string;
-    title: string;
-    created: string;
-    body: string;
-    category: string;
-}
+

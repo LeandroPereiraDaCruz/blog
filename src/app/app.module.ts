@@ -10,7 +10,6 @@ import { ContactComponent } from './contact/contact.component';
 import { PostsComponent } from './posts/posts.component';
 import { PostComponent } from './post/post.component';
 import { NotfoundComponent } from './notfound/notfound.component';
-import { RecentPostsComponent } from './recent-posts/recent-posts.component';
 
 import { LinkRedesSociaisComponent } from './link-redes-sociais/link-redes-sociais.component';
 import { FacebookModule } from 'ngx-facebook';
@@ -36,8 +35,7 @@ const appRoute: Routes = [
     PostComponent,
     LinkRedesSociaisComponent,
     SafeHtmlPipe,
-    NotfoundComponent,
-    RecentPostsComponent
+    NotfoundComponent
   ],
   imports: [
     BrowserModule,

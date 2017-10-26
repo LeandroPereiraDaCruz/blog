@@ -14,7 +14,16 @@
       </div>
     </div>
     <div class="col-md-4">
-      <app-recent-posts></app-recent-posts>
+      <div *ngFor="let post of posts">
+        <a [routerLink]="['/post', post.id]">
+          <p>{{post.title}}<br>
+            <small class="text-muted">{{post.created}}</small>
+          </p>
+        </a>
+      </div>
     </div>
+  </div>
+  <div #loading *ngIf="posts == undefined" class="row justify-content-center">
+      <p>Loading posts...</p>
   </div>
 </div>
