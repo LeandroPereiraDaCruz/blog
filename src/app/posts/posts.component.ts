@@ -28,8 +28,8 @@ export class PostsComponent implements OnInit {
       this.posts = res;
       this.xfbmlParse();
     }, error => {
-      console.log('Error getting posts from API ' + this.api.getUrl());
-      console.log('ERROR', error);
+      console.error('Error getting posts from API ' + this.api.getUrl());
+      console.error('ERROR', error);
       this.loading.nativeElement.innerHTML = 'Error: Didn\'t connect to the API!';
     });
   }
@@ -48,7 +48,7 @@ export class PostsComponent implements OnInit {
         console.log('Facebook comments updated');
       });
     } else {
-      console.log('FB not defined');
+      console.error('FB not defined');
     }
   }
 }

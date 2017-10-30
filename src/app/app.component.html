@@ -1,62 +1,6 @@
-<div class="jumbotron jumbotron-fluid">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-6">
-        <h1 class="display-3">Leandro Cruz</h1>
-        <app-link-redes-sociais></app-link-redes-sociais>
-        <p class="lead">Blog pessoal</p>    
-        <hr class="my-4">
-        <fb-like href="https://leandropereiradacruz.github.io/" action="like" show-faces="true" share="true"></fb-like>
-      </div>
-      <div class="col-md-6">
-        <blockquote class="blockquote blockquote-reverse">
-          <p class="mb-0">There is no comfort zone for people who really dream.</p>
-          <footer class="blockquote-footer"><cite title="Leandro Pereira da Cruz">Leandro Cruz, desenvolvedor </cite></footer>
-        </blockquote>
-        <blockquote class="blockquote blockquote-reverse">
-          <p class="mb-0">Eu não falhei. Só descobri 10 mil caminhos que não eram o certo.</p>
-          <footer class="blockquote-footer"><cite title="Thomas Edison, inventor">Thomas Edison, inventor </cite></footer>
-        </blockquote>
-        <p class="lead">
-          <a class="btn btn-primary btn-lg" href="#" role="button" routerLink="/about">More About Leandro Cruz</a>
-        </p>        
-      </div>
-    </div>
-  </div>
-</div>
 
-  
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <div class="container">
-    
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item">
-          <a class="nav-link" href="#" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" routerLink="">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#" routerLinkActive="active" routerLink="/contact">Contato</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#" routerLinkActive="active" routerLink="/about">Sobre</a>
-        </li>
-      </ul>
-      <form class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="text" placeholder="Procurar" aria-label="Procurar">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Procurar</button>
-      </form>
-    </div>
-  </div>
-</nav>
+<app-header></app-header>
+<app-top-menu></app-top-menu>
 <br>
 <router-outlet></router-outlet>
-
-<footer class="footer">
-  <div class="container text-center">
-    <span class="text-muted">Blog Leandro Cruz @2017</span>
-  </div>
-</footer>
+<app-footer></app-footer>

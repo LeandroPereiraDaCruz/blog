@@ -15,6 +15,9 @@ import { LinkRedesSociaisComponent } from './link-redes-sociais/link-redes-socia
 import { FacebookModule } from 'ngx-facebook';
 import { SafeHtmlPipe } from './util/pipe.safehtml';
 import { ApiserverService } from './apiserver.service';
+import { FooterComponent } from './footer/footer.component';
+import { HeaderComponent } from './header/header.component';
+import { TopMenuComponent } from './top-menu/top-menu.component';
 
 
 
@@ -35,7 +38,10 @@ const appRoute: Routes = [
     PostComponent,
     LinkRedesSociaisComponent,
     SafeHtmlPipe,
-    NotfoundComponent
+    NotfoundComponent,
+    FooterComponent,
+    HeaderComponent,
+    TopMenuComponent
   ],
   imports: [
     BrowserModule,

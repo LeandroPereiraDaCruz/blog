@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FacebookService, InitParams } from 'ngx-facebook';
+import { FacebookService, InitParams, UIParams, UIResponse } from 'ngx-facebook';
 
 @Component({
   selector: 'app-root',
@@ -18,5 +18,16 @@ export class AppComponent {
     };
 
     fb.init(initParams);
+  }
+
+  share(url: string){
+    let params: UIParams = {
+      href: 'https://github.com/zyra/ngx-facebook',
+      method: 'share'
+    }
+
+    this.fb.ui(params)
+    .then((res: UIResponse) => console.log(res))
+    .catch((e:any) => console.error(e));
   }
 }

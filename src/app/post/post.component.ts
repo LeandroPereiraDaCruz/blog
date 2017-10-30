@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, ViewChild, ElementRef } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import { ApiserverService } from '../apiserver.service';
@@ -15,6 +15,7 @@ declare var window: any;
 })
 export class PostComponent implements OnInit, OnDestroy {
 
+  @ViewChild('loading') loading: ElementRef;
   id: string;
   post: Post;
 
@@ -32,8 +33,9 @@ export class PostComponent implements OnInit, OnDestroy {
         this.post = res;
         this.xfbmlParse();
       }, error => {
-        console.log('Error getting post ' + this.id + ' from API ' + this.api.getUrl());
-        console.log('ERROR', error);
+        console.error('Error getting post ' + this.id + ' from API ' + this.api.getUrl());
+        console.error('ERROR', error);
+        this.loading.nativeElement.innerHTML = 'Error: Didn\'t connect to the API!';
       });
     });
 
@@ -53,7 +55,7 @@ export class PostComponent implements OnInit, OnDestroy {
         console.log('Facebook components updated');
       });
     } else {
-      console.log('FB not defined');
+      console.error('FB not defined');
     }
   }
 }
