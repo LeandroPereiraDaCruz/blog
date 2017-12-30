@@ -4,8 +4,6 @@
       <h2>{{post.title}}</h2>
       <h5>{{post.created}}</h5>
       <div [innerHtml]="post.body | safeHtml"></div>
-      <h5>Deixe seu comentário abaixo:</h5>
-      <fb-comments numposts="5" href="https://leandropereiradacruz.github.io/#/post/{{post.id}}" ></fb-comments>
     </div>
     <div #loading *ngIf="post == undefined">
         Loading...
